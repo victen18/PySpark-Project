@@ -1,0 +1,7 @@
+copy_files_local_to_hdfs.ksh Started...: Fri Mar  4 23:01:47 UTC 2022
+Local Staging Path is   : /home/sibaramnanda2021/projects/PrescPipeline/src/main/python/staging 
+Local City Directory is : /home/sibaramnanda2021/projects/PrescPipeline/src/main/python/staging/dimension_city 
+Local Fact Directory is : /home/sibaramnanda2021/projects/PrescPipeline/src/main/python/staging/fact 
+HDFS Staging Path is   : PrescPipeline/staging 
+HDFS City Directory is : PrescPipeline/staging/dimension_city 
+HDFS Fact Directory is : PrescPipeline/staging/fact 

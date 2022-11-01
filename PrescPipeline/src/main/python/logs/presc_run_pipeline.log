@@ -1,0 +1,84 @@
+"13-Apr-22 22:02:08" - root - INFO - run_presc_pipeline is Started ...
+"13-Apr-22 22:02:08" - root - INFO - main() is started ...
+"13-Apr-22 22:02:08" - create_objects - INFO - get_spark_object() is started. The 'PROD' envn is used.
+"13-Apr-22 22:02:40" - create_objects - INFO - Spark Object is created ...
+"13-Apr-22 22:02:46" - validations - INFO - Validate the Spark object by printing Current Date - [Row(current_date()=datetime.date(2022, 4, 13))]
+"13-Apr-22 22:02:46" - validations - INFO - Spark object is validated. Spark Object is ready.
+"13-Apr-22 22:02:49" - presc_run_data_ingest - INFO - load_files() is Started ...
+"13-Apr-22 22:02:51" - presc_run_data_ingest - INFO - The input File PrescPipeline/staging/dimension_city is loaded to the data frame. The load_files() Function is completed.
+"13-Apr-22 22:02:53" - presc_run_data_ingest - INFO - load_files() is Started ...
+"13-Apr-22 22:03:54" - presc_run_data_ingest - INFO - The input File PrescPipeline/staging/fact is loaded to the data frame. The load_files() Function is completed.
+"13-Apr-22 22:03:54" - validations - INFO - The DataFrame Validation by count df_count() is started for Dataframe df_city...
+"13-Apr-22 22:03:56" - validations - INFO - The DataFrame count is 28338.
+"13-Apr-22 22:03:56" - validations - INFO - The DataFrame Validation by count df_count() is completed.
+"13-Apr-22 22:03:56" - validations - INFO - The DataFrame Validation by count df_count() is started for Dataframe df_fact...
+"13-Apr-22 22:04:06" - validations - INFO - The DataFrame count is 24964300.
+"13-Apr-22 22:04:06" - validations - INFO - The DataFrame Validation by count df_count() is completed.
+"13-Apr-22 22:04:06" - presc_run_data_preprocessing - INFO - perform_data_clean() is started for df_city dataframe...
+"13-Apr-22 22:04:06" - presc_run_data_preprocessing - INFO - perform_data_clean() is started for df_fact dataframe...
+"13-Apr-22 22:04:07" - presc_run_data_preprocessing - INFO - perform_data_clean() is completed...
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame Schema Validation for Dataframe df_fact_sel...
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame df_fact_sel schema is: 
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_id,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_city,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_state,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_spclt,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(years_of_exp,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(drug_name,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(trx_cnt,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(total_day_supply,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(total_drug_cost,DoubleType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(country_name,StringType,false)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_fullname,StringType,false)
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame Schema Validation is completed.
+"13-Apr-22 22:04:07" - presc_run_data_transform - INFO - Transform - city_report() is started...
+"13-Apr-22 22:04:07" - presc_run_data_transform - INFO - Transform - city_report() is completed...
+"13-Apr-22 22:04:07" - presc_run_data_transform - INFO - Transform - top_5_Prescribers() is started...
+"13-Apr-22 22:04:07" - presc_run_data_transform - INFO - Transform - top_5_Prescribers() is completed...
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame Schema Validation for Dataframe df_city_final...
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame df_city_final schema is: 
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(city,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(state_name,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(county_name,StringType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(population,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(zip_counts,IntegerType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(trx_counts,LongType,true)
+"13-Apr-22 22:04:07" - validations - INFO - 	StructField(presc_counts,LongType,false)
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame Schema Validation is completed.
+"13-Apr-22 22:04:07" - validations - INFO - The DataFrame Validation by count df_count() is started for Dataframe df_city_final...
+"13-Apr-22 22:04:49" - validations - INFO - The DataFrame count is 11803.
+"13-Apr-22 22:04:49" - validations - INFO - The DataFrame Validation by count df_count() is completed.
+"13-Apr-22 22:04:49" - validations - INFO - The DataFrame Validation by top 10 record df_top10_rec() is started for Dataframe df_presc_final...
+"13-Apr-22 22:04:49" - validations - INFO - The DataFrame top 10 records are:.
+"13-Apr-22 22:06:13" - validations - INFO - 
+ 	   presc_id     presc_fullname presc_state country_name  years_of_exp  trx_cnt  total_day_supply  total_drug_cost
+ 2036256032        TODD SUMNER          AA          USA            33       62               148           356.28
+ 2036256032        TODD SUMNER          AA          USA            38       60               385           258.33
+-2046463267     GEORGE CASSIDY          AA          USA            49       45               180           208.76
+ 2036408029        RYAN MEHRER          AA          USA            45       38               244           151.01
+-2117083349   CATHERINE ROGERS          AA          USA            49       35              1050           261.30
+ 2076581050          ULKER TOK          AZ          USA            35     3242            114116        160195.15
+ 2056377625  ANDREW RABINOWITZ          AZ          USA            31     3132            216274         76028.99
+-2066947266       JASON LEVINE          AZ          USA            44     2323             88055         32106.45
+-1672033807      NEIL ATODARIA          AZ          USA            42     2281            148209         50318.98
+-2117454907        RAVI BHALLA          AZ          USA            33     2081            101348        125539.09
+"13-Apr-22 22:06:13" - validations - INFO - The DataFrame Validation by top 10 record df_top10_rec() is completed.
+"13-Apr-22 22:06:13" - validations - INFO - The DataFrame Schema Validation for Dataframe df_presc_final...
+"13-Apr-22 22:06:13" - validations - INFO - The DataFrame df_presc_final schema is: 
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(presc_id,IntegerType,true)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(presc_fullname,StringType,false)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(presc_state,StringType,true)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(country_name,StringType,false)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(years_of_exp,IntegerType,true)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(trx_cnt,IntegerType,true)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(total_day_supply,IntegerType,true)
+"13-Apr-22 22:06:13" - validations - INFO - 	StructField(total_drug_cost,DoubleType,true)
+"13-Apr-22 22:06:13" - validations - INFO - The DataFrame Schema Validation is completed.
+"13-Apr-22 22:06:13" - validations - INFO - The DataFrame Validation by count df_count() is started for Dataframe df_presc_final...
+"13-Apr-22 22:07:33" - validations - INFO - The DataFrame count is 309.
+"13-Apr-22 22:07:33" - validations - INFO - The DataFrame Validation by count df_count() is completed.
+"13-Apr-22 22:07:33" - presc_run_data_extraction - INFO - Extraction - extract_files() is started...
+"13-Apr-22 22:08:34" - presc_run_data_extraction - INFO - Extraction - extract_files() iscompleted...
+"13-Apr-22 22:08:34" - presc_run_data_extraction - INFO - Extraction - extract_files() is started...
+"13-Apr-22 22:10:15" - presc_run_data_extraction - INFO - Extraction - extract_files() iscompleted...
+"13-Apr-22 22:10:15" - root - INFO - presc_run_pipeline.py is Completed.
